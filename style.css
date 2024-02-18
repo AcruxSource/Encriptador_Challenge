@@ -1,5 +1,11 @@
 :root {
-  /* --angle: 0deg; */
+  --bg-color: #06141b;
+  --bg0-color: #11212d;
+  --bg1-color: #253745;
+  --fg-color: #4a5c5a;
+  --fg2-color: #9ba8ab;
+  --fg3-color: #ccd0cf;
+  --grd-color: #0051ff, #5603bd 60%;
 }
 
 * {
@@ -8,6 +14,7 @@
 }
 
 body {
+  background: var(--bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,33 +22,55 @@ body {
   height: 100vh;
 }
 
-.inputContainer {
+.mainContainer {
   position: relative;
-  width: 400px;
-  height: 500px;
-  overflow: hidden;
+  width: 500px;
+  height: 300px;
+  /* overflow: hidden; */
 
   &:before {
     content: "";
     position: absolute;
-    inset: 0px 120px;
-    background: conic-gradient(from 45deg, red, blue);
-
-    animation: 50s rotate linear infinite;
-    transition: all 0.2s linear;
+    inset: 0px;
+    border-radius: 20px;
+    background: linear-gradient(155deg, var(--grd-color));
+    filter: blur(5px);
   }
+}
+.mainContainer .mainContainer:nth-child(1) {
+  position: absolute;
+  height: 140px;
+  width: 140px;
+  inset: calc(300px / 2 - 53%) calc(500px / 2 - 52%);
+}
+.mainContainer .mainContainer:nth-child(2) {
+  position: absolute;
+  height: 140px;
+  width: 140px;
+  inset: calc(300px / 2 + 7%) calc(500px / 2 + 24%);
 }
 span {
   position: absolute;
-  inset: 2px;
-  background: #222;
+  inset: 1px;
+  border-radius: 20px;
+  background: var(--bg-color);
 }
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.textContainer {
+  position: absolute;
+  inset: 2px;
+  background: var(--bg-color);
+  border-radius: 20px;
+}
+.inputText {
+  font-size: 15px;
+  color: var(--fg-color);
+  margin: 15px 15px;
+  padding: 10px 10px;
+  position: absolute;
+  inset: 0px;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  scrollbar-width: none;
 }
