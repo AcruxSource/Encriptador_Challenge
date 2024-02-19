@@ -2,7 +2,7 @@
   --bg-color: #06141b;
   --bg0-color: #11212d;
   --bg1-color: #253745;
-  --fg-color: #4a5c5a;
+  --fg-color: #6aa9e9;
   --fg2-color: #9ba8ab;
   --fg3-color: #ccd0cf;
   --blue-color: #0051ff;
@@ -29,7 +29,7 @@ body {
   background: var(--bg-color);
 }
 
-.mainContainer {
+.main__container {
   position: relative;
   width: 500px;
   height: 300px;
@@ -48,23 +48,22 @@ body {
   }
 }
 
-.div1 {
+.box--left {
   position: absolute;
-  inset: 0px -10px;
   width: 140px;
   height: 140px;
 
   &:before {
     content: "";
-    inset: 0;
+    inset: 0px -10px;
     position: absolute;
     border-radius: 20px;
     background: var(--blue-color);
     filter: blur(1px);
   }
 }
-.div2 {
-  position: relative;
+.box--right {
+  position: absolute;
   inset: 160px 372px;
   width: 140px;
   height: 140px;
@@ -78,12 +77,53 @@ body {
     filter: blur(1px);
   }
 }
-.div3 {
+.text__container {
   position: absolute;
-  inset: 8px;
+  inset: 5px 5px 41px 5px;
   background: #06141b;
-  border-radius: 20px;
+  border-radius: 20px 20px 5px 5px;
   z-index: 1;
+}
+#text__box {
+  position: absolute;
+  inset: 0px;
+  margin: 11px 8px;
+  padding: 5px;
+  outline: none;
+  scrollbar-width: none;
+  resize: none;
+  border: none;
+  background: transparent;
+  color: var(--fg-color);
+}
+.status__container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-left: 20px;
+  inset: 260px 5px 5px 5px;
+  background: var(--bg-color);
+  border-radius: 5px 5px 20px 20px;
+  z-index: 1;
+}
+
+.box__label,
+.box__input--col,
+.box__input--lin {
+  width: 35px;
+  height: 20px;
+  margin-right: 12px;
+  border-radius: 5px;
+  background: #0051ff;
+}
+
+.status__container span {
+  display: flex;
+  font-size: 11px;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg3-color);
 }
 
 @media screen and (max-width: 600px) {

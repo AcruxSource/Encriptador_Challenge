@@ -1,13 +1,24 @@
 log = console.log;
-const inText = document.getElementById("input");
-const position = document.querySelector(".statusPosition");
+const inputText = document.getElementById("text__box");
+const lineNumber = document.querySelector(".box__input--lin");
+const columnNumber = document.querySelector(".box__input--col");
 
-inText.addEventListener("keyup", () => {});
-inText.addEventListener("click", () => {});
-inText.addEventListener("select", () => {});
+inputText.addEventListener("keyup", () => {
+  lineNumber.textContent = positionStatus().lin;
+  columnNumber.textContent = positionStatus().col;
+});
+inputText.addEventListener("click", (ev) => {
+  lineNumber.textContent = positionStatus().lin;
+  columnNumber.textContent = positionStatus().col;
+});
+inputText.addEventListener("select", () => {
+  lineNumber.textContent = "";
+  columnNumber.textContent = "";
+});
+
 function positionStatus() {
-  const text = inText.value;
-  const position = inText.selectionStart;
+  const text = inputText.value;
+  const position = inputText.selectionStart;
   var charsCount = 0;
   const textArray = text.substring(0, position).split("\n");
   for (var i = 0; i < textArray.length - 1; i++)
