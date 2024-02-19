@@ -5,72 +5,103 @@
   --fg-color: #4a5c5a;
   --fg2-color: #9ba8ab;
   --fg3-color: #ccd0cf;
-  --grd-color: #0051ff, #5603bd 60%;
+  --blue-color: #0051ff;
+  --purple-color: #5603bd;
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
 }
 
 body {
-  background: var(--bg-color);
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  width: 100%;
+  justify-content: center;
   height: 100vh;
+  width: 100%;
+  background: var(--bg-color);
 }
 
 .mainContainer {
   position: relative;
   width: 500px;
   height: 300px;
-  /* overflow: hidden; */
 
-  &:before {
+  &::after {
     content: "";
     position: absolute;
     inset: 0px;
+    background: linear-gradient(
+      145deg,
+      var(--blue-color),
+      var(--purple-color) 70%
+    );
     border-radius: 20px;
-    background: linear-gradient(155deg, var(--grd-color));
-    filter: blur(5px);
+    filter: blur(1px);
   }
 }
-.mainContainer .mainContainer:nth-child(1) {
+
+.div1 {
   position: absolute;
-  height: 140px;
+  inset: 0px -10px;
   width: 140px;
-  inset: calc(300px / 2 - 53%) calc(500px / 2 - 52%);
-}
-.mainContainer .mainContainer:nth-child(2) {
-  position: absolute;
   height: 140px;
+
+  &:before {
+    content: "";
+    inset: 0;
+    position: absolute;
+    border-radius: 20px;
+    background: var(--blue-color);
+    filter: blur(1px);
+  }
+}
+.div2 {
+  position: relative;
+  inset: 160px 372px;
   width: 140px;
-  inset: calc(300px / 2 + 7%) calc(500px / 2 + 24%);
+  height: 140px;
+
+  &:before {
+    content: "";
+    inset: 0;
+    position: absolute;
+    border-radius: 20px;
+    background: var(--purple-color);
+    filter: blur(1px);
+  }
 }
-span {
+.div3 {
   position: absolute;
-  inset: 1px;
+  inset: 8px;
+  background: #06141b;
   border-radius: 20px;
-  background: var(--bg-color);
+  z-index: 1;
 }
-.textContainer {
-  position: absolute;
-  inset: 2px;
-  background: var(--bg-color);
-  border-radius: 20px;
-}
-.inputText {
-  font-size: 15px;
-  color: var(--fg-color);
-  margin: 15px 15px;
-  padding: 10px 10px;
-  position: absolute;
-  inset: 0px;
-  background: transparent;
-  border: none;
-  outline: none;
-  resize: none;
-  scrollbar-width: none;
+
+@media screen and (max-width: 600px) {
+  .mainContainer {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    &:after {
+      content: "";
+      position: absolute;
+      inset: 0px;
+      background: linear-gradient(
+        145deg,
+        var(--blue-color),
+        var(--purple-color) 70%
+      );
+      border-radius: 20px;
+      filter: blur(5px);
+    }
+  }
 }
