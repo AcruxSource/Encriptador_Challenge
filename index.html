@@ -17,14 +17,17 @@
     <div class="main__container">
       <div class="box--left"></div>
       <div class="box--right"></div>
-      <div class="text__container">
-        <textarea
-          spellcheck="false"
-          id="text__box"
-          cols="30"
-          rows="10"
-        ></textarea>
+
+      <div class="option__container">
+        <button type="button" class="btn--clean" onclick="clean();">
+          Borrar
+        </button>
       </div>
+
+      <div class="text__container">
+        <textarea spellcheck="false" id="text__box"></textarea>
+      </div>
+
       <div class="status__container">
         <span class="box__label">Lin.</span>
         <span class="box__input--lin"></span>

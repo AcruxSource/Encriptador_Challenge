@@ -12,8 +12,8 @@ inputText.addEventListener("click", (ev) => {
   columnNumber.textContent = positionStatus().col;
 });
 inputText.addEventListener("select", () => {
-  lineNumber.textContent = "";
-  columnNumber.textContent = "";
+  lineNumber.textContent = " -";
+  columnNumber.textContent = "-";
 });
 
 function positionStatus() {
@@ -27,4 +27,8 @@ function positionStatus() {
     lin: textArray.length,
     col: position - charsCount + 1,
   };
+}
+
+function clean() {
+  inputText.value = "";
 }

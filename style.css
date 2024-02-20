@@ -77,13 +77,45 @@ body {
     filter: blur(1px);
   }
 }
+
+.option__container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  background: var(--bg-color);
+  inset: 5px 5px 260px 5px;
+  z-index: 1;
+  border-radius: 20px 20px 5px 5px;
+}
+
+.btn--clean {
+  position: relative;
+  overflow: hidden;
+  margin-right: 20px;
+  background: var(--purple-color);
+  text-align: center;
+  height: 20px;
+  width: 60px;
+  border: none;
+  border-radius: 5px;
+  color: var(--fg2-color);
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.btn--clean:hover {
+  color: var(--fg3-color);
+  opacity: 0.9;
+}
+
 .text__container {
   position: absolute;
-  inset: 5px 5px 41px 5px;
-  background: #06141b;
-  border-radius: 20px 20px 5px 5px;
+  inset: 41px 5px 41px 5px;
+  background: var(--bg-color);
   z-index: 1;
 }
+
 #text__box {
   position: absolute;
   inset: 0px;
