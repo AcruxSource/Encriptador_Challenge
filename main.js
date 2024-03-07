@@ -54,7 +54,9 @@ function wordWrap() {
   inputText.value = array.join().replace(/[,]/g, "\n");
 }
 
-function clean() {}
+function clean() {
+  inputText.value = "";
+}
 
 function getUppercase() {
   let re = /\w*[A-Z]\w*/g;
