@@ -2,41 +2,61 @@ log = console.log;
 const inputText = document.getElementById("text__box");
 const lineNumber = document.querySelector(".box__input--lin");
 const columnNumber = document.querySelector(".box__input--col");
-const text = {} || undefined;
+const maxLength = 48;
 
 (function x(...typeEvent) {
   typeEvent.forEach((element) => {
     inputText.addEventListener(element, (ev) => {
-      elementCatch(this);
-      lineNumber.textContent = this.txt.length;
-      // lineNumber.textContent = positionStatus().lin;
-      // columnNumber.textContent = positionStatus().col;
-
-      if (ev.type === "input") {
-        // positionStatus();
-      }
-      if (ev.type === "select") {
-        lineNumber.textContent = " -";
-        columnNumber.textContent = "-";
+      switch (ev.type) {
+        case "keyup":
+        case "click":
+          var handler = cursorPosition();
+          columnNumber.textContent = handler.column()[0];
+          lineNumber.textContent = handler.line;
+          break;
+        case "input":
+          wordWrap();
       }
     });
   });
-}).apply(text, ["click", "keyup", "select", "input"]);
+})("click", "keyup", "select", "input");
 
-function elementCatch(text) {
-  const text1 = inputText.value;
-  text.txt = inputText.value;
+function cursorPosition() {
   const position = inputText.selectionStart;
-  var charsCount = 0;
+  const subText = inputText.value.substring(0, position).split(/\n/);
 
-  const textArray = text1.substring(0, position).split("\n");
-  log(textArray);
-  for (let i = 0; i < textArray.length - 1; i++) {
-    var textLength = textArray[i].length;
-    charsCount += textLength + 1;
-  }
-  log(position, charsCount);
+  return {
+    column: () => {
+      let charsCount = 0;
+      for (let i = 0; i < subText.length - 1; i++) {
+        var textLength = subText[i].length;
+        charsCount += textLength + 1;
+      }
+      return [position - charsCount + 1, charsCount];
+    },
+    line: subText.length,
+  };
 }
-function clean() {
-  inputText.value = "";
+function wordWrap() {
+  let array = [];
+  const text = inputText.value.split(/\n/);
+  text.forEach((element) => {
+    if (element.length > maxLength) {
+      const lastSpace = element.lastIndexOf(" ");
+      element =
+        element.substring(0, lastSpace) +
+        "\n" +
+        element.substring(lastSpace + 1);
+    }
+    array.push(element);
+    log(array);
+  });
+  inputText.value = array.join().replace(/[,]/g, "\n");
+}
+
+function clean() {}
+
+function getUppercase() {
+  let re = /\w*[A-Z]\w*/g;
+  log(inputText.value.match(re));
 }

@@ -117,8 +117,11 @@ body {
 }
 
 #text__box {
+  font-size: 16PX;
   position: absolute;
-  inset: 0px;
+  box-sizing: border-box;
+  height: calc(218px - 22px);
+  /* width: calc(490px - 16px); */
   margin: 11px 8px;
   padding: 5px;
   outline: none;
