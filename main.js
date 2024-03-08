@@ -38,23 +38,34 @@ function cursorPosition() {
   };
 }
 function wordWrap() {
-  let array = [];
-  const text = inputText.value.split(/\n/);
-  text.forEach((element) => {
+  // debugger;
+  const textArea = {
+    text: null,
+    buffer: [],
+  };
+  textArea.text = inputText.value.split(/\n/);
+  textArea.text.forEach((element) => {
     if (element.length > maxLength) {
-      const lastSpace = element.lastIndexOf(" ");
-      element =
-        element.substring(0, lastSpace) +
-        "\n" +
-        element.substring(lastSpace + 1);
+      const index = textArea.text.indexOf(element);
+      const indexLastSpace = element.lastIndexOf(" ");
+      textArea.buffer.push(element.substring(0, indexLastSpace));
+      textArea.buffer.push(element.substring(indexLastSpace + 1));
+      textArea.text[index] = textArea.buffer[0];
+      if (textArea.text[index + 1] != undefined) {
+        textArea.text[index + 1] =
+          textArea.buffer[1] + " " + textArea.text[index + 1];
+      } else {
+        textArea.text.push(textArea.buffer[1]);
+      }
     }
-    array.push(element);
-    log(array);
   });
-  inputText.value = array.join().replace(/[,]/g, "\n");
+  log(textArea.text);
+  inputText.value = textArea.text.join().replace(/[,]/g, "\n");
 }
 
-function clean() {}
+function clean() {
+  inputText.value = "";
+}
 
 function getUppercase() {
   let re = /\w*[A-Z]\w*/g;
