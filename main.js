@@ -4,6 +4,13 @@ const lineNumber = document.querySelector(".box__input--lin");
 const columnNumber = document.querySelector(".box__input--col");
 const maxLength = 48;
 
+const tt = document.querySelector(".tt");
+
+const textArea = {
+  text: null,
+  buffer: [],
+};
+
 (function x(...typeEvent) {
   typeEvent.forEach((element) => {
     inputText.addEventListener(element, (ev) => {
@@ -13,9 +20,11 @@ const maxLength = 48;
           var handler = cursorPosition();
           columnNumber.textContent = handler.column()[0];
           lineNumber.textContent = handler.line;
+
           break;
         case "input":
           wordWrap();
+          getUppercase();
       }
     });
   });
@@ -39,10 +48,7 @@ function cursorPosition() {
 }
 function wordWrap() {
   // debugger;
-  const textArea = {
-    text: null,
-    buffer: [],
-  };
+
   textArea.text = inputText.value.split(/\n/);
   textArea.text.forEach((element) => {
     if (element.length > maxLength) {
@@ -59,7 +65,7 @@ function wordWrap() {
       }
     }
   });
-  log(textArea.text);
+  // log(textArea.text);
   inputText.value = textArea.text.join().replace(/[,]/g, "\n");
 }
 
@@ -69,5 +75,6 @@ function clean() {
 
 function getUppercase() {
   let re = /\w*[A-Z]\w*/g;
-  log(inputText.value.match(re));
+  const uppercaseString = inputText.value.match(re);
+  log(uppercaseString);
 }
