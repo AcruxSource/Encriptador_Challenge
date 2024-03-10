@@ -242,21 +242,34 @@ main {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 50%;
   height: 90vh;
+  background-image: url(/img/bg_desing.png);
+  background-size: cover;
+  
 }
+
+
+
+
 .section--output .main__container {
-  height: 400px;
-  width: 500px;
+  height: 550px;
+  width: 400px;
 }
 
 .section--output .option__container{
-  inset: 5px 5px 350px 5px;
+  inset: 5px 5px 510px 5px;
 }
 .section--output .text__container{
   border-radius: 5px 5px 20px 20px ;
-  inset: 60px 5px 5px 5px;
+  inset: 41px 5px 5px 5px;
 }
+
+  .section--output #text__box{
+    height: 95%;
+    width: 98%;
+  }
 
 
 @media screen and (max-width: 600px) {
