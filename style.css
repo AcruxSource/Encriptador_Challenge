@@ -20,13 +20,30 @@
 
 body {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 100%;
+  background-image: url(/img/background.jpg);
+}
+main {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 90vh;
+}
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
   background: var(--bg-color);
+  filter: opacity(0.95);
+  
 }
 
 .main__container {
@@ -82,34 +99,34 @@ body {
   position: absolute;
   display: flex;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
   background: var(--bg-color);
   inset: 5px 5px 260px 5px;
   z-index: 1;
   border-radius: 20px 20px 5px 5px;
 }
 
-.toggle{
+.toggle {
   position: relative;
-  display:inline-block;
+  display: inline-block;
   width: 40px;
   height: 25px;
   margin-left: 20px;
 }
 
-.input__toggle{
+.input__toggle {
   opacity: 0;
 }
 
-.switch__toggle{
+.switch__toggle {
   position: absolute;
   inset: 0px;
   background: var(--blue-color);
   border-radius: 5px;
   opacity: 0.5;
   transition: 0.5s;
-  &:before{
-    content: '';
+  &:before {
+    content: "";
     position: absolute;
     height: 21px;
     width: 21px;
@@ -120,14 +137,14 @@ body {
     transition: 0.5s;
   }
 }
-.switch__toggle:hover{
+.switch__toggle:hover {
   opacity: 0.9;
 }
-.input__toggle:checked + .switch__toggle::before{
+.input__toggle:checked + .switch__toggle::before {
   transform: translateX(15px);
 }
 
-.title--modo{
+.title--modo {
   position: absolute;
   color: var(--fg2-color);
   inset: 0px;
@@ -163,7 +180,7 @@ body {
 }
 
 #text__box {
-  font-size: 16PX;
+  font-size: 16px;
   position: absolute;
   box-sizing: border-box;
   height: calc(218px - 22px);
@@ -188,8 +205,8 @@ body {
   border-radius: 5px 5px 20px 20px;
   z-index: 1;
 }
-.cursor--position{
-  display:flex;
+.cursor--position {
+  display: flex;
 }
 
 .cursor--position span {
@@ -211,16 +228,15 @@ body {
   opacity: 0.7;
 }
 
-.svg--notification{
+.svg--notification {
   float: right;
-  background:linear-gradient(var(--purple-color), var(--blue-color));
+  background: linear-gradient(var(--purple-color), var(--blue-color));
   border-radius: 5px;
   fill: var;
   opacity: 0.5;
   margin-right: 20px;
 }
 
-  
 @media screen and (max-width: 600px) {
   .mainContainer {
     position: relative;
