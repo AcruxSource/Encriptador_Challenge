@@ -25,30 +25,32 @@ body {
   height: 100vh;
   width: 100%;
   background-image: url(/img/background.jpg);
-}
-main {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content:space-around;
-  width: 100%;
-  height: 90vh;
-}
-main::before {
-  content: "";
-  position: absolute;
-  inset: 0px;
-  background: var(--bg-color);
-  filter: opacity(0.95);
+  background-size: cover;
+  
+  /* overflow: hidden; */
   
 }
+main {
+  width: 100%;
+  height: 90vh;
+  inset: 0px;
+  background: var(--bg-color);
+}
+.section--input{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 90vh;
+}
+
 
 .main__container {
-  position: relative;
+  position: absolute;
   width: 500px;
   height: 300px;
+  
 
   &:after {
     content: "";
@@ -236,6 +238,14 @@ main::before {
   margin-right: 20px;
 }
 
+img{
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  
+  height: 400px;
+
+}
 
 
 
