@@ -30,12 +30,13 @@ body {
 main {
   display: flex;
   flex-direction: row;
+  
   width: 100%;
   height: 90vh;
   inset: 0px;
   background: var(--bg-color);
 }
-.section--input{
+.section--input {
   position: relative;
   display: flex;
   align-items: center;
@@ -50,7 +51,6 @@ main {
   position: absolute;
   width: 500px;
   height: 300px;
-  
 
   &:after {
     content: "";
@@ -146,14 +146,17 @@ main {
 }
 
 .title--modo {
+  user-select: none;
   position: absolute;
-  color: var(--fg2-color);
+  color: var(--fg-color);
   inset: 0px;
   left: 80px;
   top: 3px;
+  width: 200px;
 }
 
 .btn--clean {
+  user-select: none;
   position: relative;
   overflow: hidden;
   margin-right: 20px;
@@ -169,7 +172,7 @@ main {
 }
 
 .btn--clean:hover {
-  color: var(--fg3-color);
+  color: var(--fg-color);
   opacity: 0.9;
 }
 
@@ -238,7 +241,50 @@ main {
   opacity: 0.5;
   margin-right: 20px;
 }
-.section--output{  
+
+.btn--ejecutar {
+  position: absolute;
+  width: 120px;
+  height: 40px;
+  left: 100px;
+  bottom: 100px;
+  &:before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    background: linear-gradient(
+      145deg,
+      var(--blue-color),
+      var(--purple-color) 70%
+    );
+    border-radius: 20px;
+  }
+}
+.btn--ejecutar:hover::before{
+  
+  animation: rotate 0.5s linear infinite alternate;
+  
+}
+
+@keyframes rotate{
+  from{background-position-x: 0px;}
+  to{background-position-x: 120px;}
+}
+
+
+.btn--ejecutar span{
+  user-select: none;
+  cursor:default;
+  color: var(--fg-color);
+  padding: 8px 19px;
+  position: absolute;
+  inset: 2px;
+  background: var(--bg-color);
+  border-radius: 20px;
+  
+}
+
+.section--output {
   position: relative;
   display: flex;
   align-items: center;
@@ -247,10 +293,7 @@ main {
   height: 90vh;
   background-image: url(/img/bg_desing.png);
   background-size: cover;
-  
 }
-
-
 
 
 .section--output .main__container {
@@ -258,19 +301,48 @@ main {
   width: 400px;
 }
 
-.section--output .option__container{
+.section--output .option__container {
   inset: 5px 5px 510px 5px;
+  justify-content: end;
+  
+  
 }
-.section--output .text__container{
-  border-radius: 5px 5px 20px 20px ;
+.btn__output{
+  user-select: none;
+  position: relative;
+  margin-right: 20px;
+  background: var(--blue-color);
+  text-align: center;
+  height: 25px;
+  width: 30px;
+  border: none;
+  border-radius: 5px;
+  color: var(--fg2-color);
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+
+
+.btn__output:hover {
+  color: var(--fg-color);
+  opacity: 0.9;
+}
+
+.section--output svg{
+  fill: var(--bg-color);
+}
+
+
+.section--output .text__container {
+  border-radius: 5px 5px 20px 20px;
   inset: 41px 5px 5px 5px;
 }
 
-  .section--output #text__box{
-    height: 95%;
-    width: 98%;
-  }
-
+.section--output #text__box {
+  height: 95%;
+  width: 98%;
+}
 
 @media screen and (max-width: 600px) {
   .mainContainer {
@@ -291,3 +363,4 @@ main {
     }
   }
 }
+

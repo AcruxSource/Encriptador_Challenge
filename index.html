@@ -32,7 +32,7 @@
             <div class="toggle">
               <input class="input__toggle" type="checkbox" id="toggle" />
               <label for="toggle" class="switch__toggle"></label>
-              <p class="title--modo">Modo:</p>
+              <p class="title--modo">Modo: ENCRIPTAR</p>
             </div>
 
             <button type="button" class="btn--clean" onclick="clean();">
@@ -42,6 +42,7 @@
 
           <div class="text__container">
             <textarea
+              class="text__box--in"
               spellcheck="false"
               id="text__box"
               cols="47"
@@ -62,7 +63,6 @@
               height="20"
               viewBox="0 -960 960 960"
               width="48"
-              łø
             >
               <path
                 d="M185-179q-20.75 0-33.375-12.86Q139-204.719 139-224.36 139-244 151.625-257T185-270h25v-278q0-91.693 51.5-166.347Q313-789 405-810v-17q0-30.583 21.841-53.292Q448.681-903 479.882-903q31.201 0 53.16 22.708Q555-857.583 555-827v17q91 19 144 94.391Q752-640.217 752-548v278h24q18.675 0 32.838 13.375Q823-243.249 823-224.509q0 20.141-14.162 32.825Q794.675-179 776-179H185Zm295-319Zm.465 447q-36.94 0-62.202-25.85Q393-102.7 393-139h175q0 37-25.948 62.5T480.465-51ZM301-270h359v-277.572Q660-622 607.42-675q-52.579-53-127.5-53Q405-728 353-674.881 301-621.763 301-548v278Z"
@@ -70,12 +70,54 @@
             </svg>
           </div>
         </div>
+        <span class="btn--ejecutar"
+          ><span onclick="codeMake();">EJECUTAR</span></span
+        >
       </section>
       <section class="section--output">
         <div class="main__container">
-          <div class="option__container"></div>
+          <div class="option__container">
+            <button type="button" class="btn__output" onclick="save();">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 -960 960 960"
+                width="24"
+              >
+                <path
+                  d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"
+                />
+              </svg>
+            </button>
+            <button type="button" class="btn__output">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 -960 960 960"
+                width="24"
+              >
+                <path
+                  d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640H447l-80-80H160v480l96-320h684L837-217q-8 26-29.5 41.5T760-160H160Zm84-80h516l72-240H316l-72 240Zm0 0 72-240-72 240Zm-84-400v-80 80Z"
+                />
+              </svg>
+            </button>
+            <button type="button" class="btn__output">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 -960 960 960"
+                width="24"
+              >
+                <path
+                  d="M760-200H320q-33 0-56.5-23.5T240-280v-560q0-33 23.5-56.5T320-920h280l240 240v400q0 33-23.5 56.5T760-200ZM560-640v-200H320v560h440v-360H560ZM160-40q-33 0-56.5-23.5T80-120v-560h80v560h440v80H160Zm160-800v200-200 560-560Z"
+                />
+              </svg>
+            </button>
+          </div>
           <div class="text__container">
             <textarea
+              class="text__box--out"
+              readonly="readonly"
               spellcheck="false"
               id="text__box"
               cols="47"

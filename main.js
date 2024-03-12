@@ -1,10 +1,12 @@
 log = console.log;
-const inputText = document.getElementById("text__box");
+const inputText = document.querySelector(".text__box--in");
+const outputText = document.querySelector(".text__box--out");
 const lineNumber = document.querySelector(".box__input--lin");
 const columnNumber = document.querySelector(".box__input--col");
-const maxLength = 48;
+const modeCheckBox = document.getElementById("toggle");
+const mode = document.querySelector(".title--modo");
 
-const tt = document.querySelector(".tt");
+const maxLength = 48;
 
 const textArea = {
   text: null,
@@ -29,6 +31,12 @@ const textArea = {
     });
   });
 })("click", "keyup", "select", "input");
+
+modeCheckBox.addEventListener("change", () => {
+  modeCheckBox.checked
+    ? (mode.textContent = "Modo: DES-ENCRIPTAR")
+    : (mode.textContent = "Modo: ENCRIPTAR");
+});
 
 function cursorPosition() {
   const position = inputText.selectionStart;
@@ -77,4 +85,43 @@ function getUppercase() {
   let re = /\w*[A-Z]\w*/g;
   const uppercaseString = inputText.value.match(re);
   log(uppercaseString);
+}
+
+function codeMake() {
+  let patterns = [
+    ["e", "enter"],
+    ["i", "imes"],
+    ["a", "ai"],
+    ["o", "ober"],
+    ["u", "ufat"],
+  ];
+  let code = inputText.value;
+  patterns.forEach((element) => {
+    if (!modeCheckBox.checked) {
+      let re = new RegExp(element[0], "g");
+      code = code.replace(re, element[1]);
+    } else {
+      let re = new RegExp(element[1], "g");
+      code = code.replace(re, element[0]);
+    }
+  });
+  outputText.value = code;
+}
+
+function save() {
+  let dateObj = new Date();
+  let dateNow =
+    dateObj.getDate() +
+    "-" +
+    (dateObj.getMonth() + 1) +
+    "-" +
+    dateObj.getFullYear() +
+    "T" +
+    dateObj.getHours() +
+    ":" +
+    dateObj.getMinutes() +
+    ":" +
+    dateObj.getSeconds();
+
+  localStorage.setItem(dateNow, outputText.value);
 }
