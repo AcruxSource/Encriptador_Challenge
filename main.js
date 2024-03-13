@@ -5,13 +5,21 @@ const lineNumber = document.querySelector(".box__input--lin");
 const columnNumber = document.querySelector(".box__input--col");
 const modeCheckBox = document.getElementById("toggle");
 const mode = document.querySelector(".title--modo");
-
+const btnSave = document.getElementById("btn--save");
+const modal = document.querySelector(".dialog");
+const boxSave = document.getElementById("container--save");
+const inputSave = document.querySelector(".input");
 const maxLength = 48;
-
 const textArea = {
   text: null,
   buffer: [],
 };
+
+btnSave.addEventListener("click", () => {
+  modal.style.display = "flex";
+  boxSave.style.display = "block";
+  inputSave.value = "";
+});
 
 (function x(...typeEvent) {
   typeEvent.forEach((element) => {
@@ -109,19 +117,13 @@ function codeMake() {
 }
 
 function save() {
-  let dateObj = new Date();
-  let dateNow =
-    dateObj.getDate() +
-    "-" +
-    (dateObj.getMonth() + 1) +
-    "-" +
-    dateObj.getFullYear() +
-    "T" +
-    dateObj.getHours() +
-    ":" +
-    dateObj.getMinutes() +
-    ":" +
-    dateObj.getSeconds();
-
-  localStorage.setItem(dateNow, outputText.value);
+  if (inputSave.value !== "") {
+    localStorage.setItem(inputSave.value, outputText.value);
+    modal.style.display = "none";
+    boxSave.style.display = "none";
+  }
+}
+function closeM() {
+  modal.style.display = "none";
+  boxSave.style.display = "none";
 }

@@ -9,4 +9,4 @@ var b = ["r"];
 // log(str.replace(/a/g, "*"));
 
 var dateObj = new Date();
-log(dateObj.getDate() + "-" + (dateObj.getMonth() + 1) + "-");
+log(dateObj.getDate());
