@@ -10,3 +10,5 @@ var b = ["r"];
 
 var dateObj = new Date();
 log(dateObj.getDate());
+
+f();

@@ -26,6 +26,11 @@
     <main>
       <section class="section--input">
         <div class="main__container">
+          <div class="container--notification main__container">
+            <img src="/img/sphere.gif" alt="" />
+
+            <span class="message"></span>
+          </div>
           <div class="box--left"></div>
           <div class="box--right"></div>
           <div class="option__container">
@@ -69,10 +74,10 @@
               />
             </svg>
           </div>
+          <span class="btn--ejecutar"
+            ><span onclick="codeMake();">EJECUTAR</span></span
+          >
         </div>
-        <span class="btn--ejecutar"
-          ><span onclick="codeMake();">EJECUTAR</span></span
-        >
       </section>
       <section class="section--output">
         <div class="main__container">
@@ -118,12 +123,35 @@
     <div class="dialog">
       <div class="container__modal" id="container--save">
         <h4>Guardar como:</h4>
-
         <hr />
         <label for="saveName">Nombre:</label>
-        <input class="input" name="saveName" type="text" />
+        <input class="input" name="saveName" type="text" maxlength="18" />
         <button type="button" onclick="save();">Guardar</button>
         <button type="button" onclick="closeM()">Cerrar</button>
+      </div>
+      <div class="container__modal" id="container--open">
+        <h4>Abrir:</h4>
+        <hr />
+        <div class="divTable">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody class="tbody"></tbody>
+          </table>
+        </div>
+        <div class="container__button--open">
+          <button class="btn--delete" type="button" onclick="deleteFile();">
+            Borrar
+          </button>
+          <div>
+            <button type="button" onclick="openFile();">Aceptar</button>
+            <button type="button" onclick="closeM();">Cerrar</button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
