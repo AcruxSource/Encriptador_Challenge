@@ -26,32 +26,39 @@ body {
   width: 100%;
   background-image: url(/img/background.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
 }
+
 main {
   position: relative;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 100%;
   height: 90vh;
   inset: 0px;
   background: var(--bg-color);
+  overflow: hidden;
 }
+
+/* SECTION INPUT:  ------------------------------ */
+
 .section--input {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 56%;
   height: 90vh;
-  background-image: url(/img/bg_desing.png);
-  background-size: cover;
+  background-image: url(/img/bg_design.png);
+  background-size: 90% 120%;
+  background-repeat: no-repeat;
 }
 
 .main__container {
+  display: flex;
   position: absolute;
   width: 500px;
   height: 300px;
-
   &:after {
     content: "";
     position: absolute;
@@ -233,20 +240,11 @@ main {
   opacity: 0.7;
 }
 
-.svg--notification {
-  float: right;
-  background: linear-gradient(var(--purple-color), var(--blue-color));
-  border-radius: 5px;
-  fill: red;
-  opacity: 0.5;
-  margin-right: 20px;
-}
-
 .btn--ejecutar {
   position: absolute;
   width: 120px;
   height: 40px;
-  
+
   bottom: -55px;
   &:before {
     content: "";
@@ -284,26 +282,29 @@ main {
   border-radius: 20px;
 }
 
+/* SECTION OUTPUT:  ------------------------------ */
+
 .section--output {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 45%;
   height: 90vh;
-  background-image: url(/img/bg_desing.png);
-  background-size: cover;
+  background-image: url(/img/bg_design.png);
+  background-size: 100% 120%;
+  background-repeat: no-repeat;
 }
 
 .section--output .main__container {
-  height: 550px;
+  height: 500px;
   width: 400px;
 }
 
 .section--output .option__container {
-  inset: 5px 5px 510px 5px;
+  inset: 5px 5px 460px 5px;
   justify-content: end;
 }
+
 .btn__output {
   user-select: none;
   position: relative;
@@ -338,7 +339,9 @@ main {
   width: 98%;
 }
 
-.dialog{
+/* MODAL : ------------------------------------- */
+
+.dialog {
   user-select: none;
   position: absolute;
   display: none;
@@ -346,48 +349,48 @@ main {
   justify-content: center;
   height: 100vh;
   width: 100%;
-  &:before{
-    content: '';
+  &:before {
+    content: "";
     inset: 0;
     position: absolute;
-    background:var(--bg-color);
+    background: var(--bg-color);
     z-index: 100;
-    filter: opacity(0.5); 
+    filter: opacity(0.5);
   }
 }
 
-.container__modal{
+.container__modal {
   position: relative;
   display: none;
   width: 400px;
   height: 200px;
-  background:var(--bg-color);
+  background: var(--bg-color);
   z-index: 200;
-  box-shadow:1px 5px 10px var(--blue-color), 5px 1px 10px var(--purple-color) ;
+  box-shadow: 1px 5px 10px var(--blue-color), 5px 1px 10px var(--purple-color);
   opacity: 0.95;
-  border-radius: 20px; 
+  border-radius: 20px;
 }
-.container__modal h4{
+.container__modal h4 {
   color: var(--fg-color);
   padding: 5px;
   margin-left: 20px;
   margin-top: 5px;
 }
-.container__modal hr{
+.container__modal hr {
   border: 1px solid var(--fg-color);
   opacity: 0.5;
   margin: 0px 10px 0px 10px;
 }
-.container__modal label{
+.container__modal label {
   color: var(--fg-color);
   margin: 20px 20px 10px 20px;
   display: block;
 }
-.container__modal input{
-  background:var(--fg-color);
+.container__modal input {
+  background: var(--fg-color);
   opacity: 0.95;
   border: none;
-  outline:  none;
+  outline: none;
   border-radius: 10px;
   width: 360px;
   height: 20px;
@@ -396,7 +399,7 @@ main {
   font-size: 15px;
   color: var(--bg-color);
 }
-.container__modal button{
+.container__modal button {
   float: right;
   border: none;
   width: 90px;
@@ -408,11 +411,11 @@ main {
   color: var(--fg-color);
 }
 
-.dialog .container__modal:nth-child(2){
+.dialog .container__modal:nth-child(2) {
   height: 320px;
 }
-.divTable{
-  overflow-y:scroll;
+.divTable {
+  overflow-y: scroll;
   scrollbar-width: none;
   inset: 0;
   height: 200px;
@@ -422,67 +425,65 @@ main {
   opacity: 0.9;
 }
 
-.table{
+.table {
   color: var(--fg-color);
   font-size: 15px;
   padding: 1px;
   border-spacing: 5px 5px;
   margin: 1px 10px;
 }
-.table td{
+.table td {
   width: 160px;
   height: 20px;
 }
 
-.table th{
-  border: 1px solid var(--purple-color) ;
+.table th {
+  border: 1px solid var(--purple-color);
   border-radius: 8px;
   width: 160px;
   height: 20px;
-  text-align:left;
+  text-align: left;
   padding-left: 5px;
 }
 
-.container__button--open{
+.container__button--open {
   display: flex;
   justify-content: space-between;
-  
 }
-.container__button--open .btn--delete{
+.container__button--open .btn--delete {
   margin-left: 20px;
   width: 60px;
   background: var(--purple-color);
-  
 }
 
-.btn--delete{
+.btn--delete {
   width: 50px;
 }
 
-.container--notification{
+/* SPHERE NOTIFICATION: --------------------------*/
+
+.container--notification {
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: end;
-  top: -120px;
+  top: -100px;
   height: 80px;
-  width: 110px;
+  width: 120px;
   z-index: 1000;
-  transition:width 0.4s;
-  &:before{
-    content: '';
+  transition: width 0.4s;
+  &:before {
+    content: "";
     position: absolute;
     background: var(--bg-color);
     border-radius: 20px;
     inset: 0;
     margin: 3px;
     z-index: 1000;
-    
   }
-  
 }
 
-.container--notification img{
+.container--notification img {
   position: absolute;
   width: 120px;
   height: 120px;
@@ -490,17 +491,192 @@ main {
   z-index: 1000;
   left: -20px;
 }
-.message{
-  /* position: absolute; */
+.message {
   right: 0;
-  text-align:center;
-  
-  
+  text-align: center;
   padding: 20px;
   width: 300px;
   color: var(--fg-color);
   overflow: hidden;
   z-index: 1000;
-  
 }
 
+/* MEDIA QUERIES: --------------------------------*/
+
+@media only screen and (width >= 600px) and (width <= 940px) {
+  main {
+    flex-direction: column;
+    background-image: url(/img/bg_design.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .section--input {
+    width: 100%;
+    background-image: none;
+  }
+  .main__container {
+    height: 200px;
+  }
+  .box--left {
+    display: none;
+  }
+  .box--right {
+    display: none;
+  }
+
+  .option__container {
+    inset: 5px 5px 160px 5px;
+  }
+
+  #text__box {
+    height: inherit;
+  }
+  .status__container {
+    inset: 160px 5px 5px 5px;
+  }
+
+  .section--output {
+    width: 100%;
+    background-image: none;
+  }
+  .section--output .main__container {
+    height: 200px;
+    width: 500px;
+  }
+  .section--output .option__container {
+    inset: 5px 5px 160px 5px;
+  }
+  .container--notification {
+    height: 80px;
+    top: -40px;
+    left: -85px;
+    width: 120px;
+  }
+}
+@media only screen and (width < 600px) {
+  main {
+    flex-direction: column;
+    background-image: none;
+  }
+  .section--input {
+    width: 100%;
+    background-image: none;
+  }
+
+  .box--left {
+    display: none;
+  }
+  .box--right {
+    display: none;
+  }
+  .main__container {
+    height: 230px;
+    width: 380px;
+    
+  }
+  .option__container {
+    inset: 5px 5px 190px 5px;
+  }
+  .status__container{
+    display: none;
+  }
+  .text__container{
+    inset: 41px 5px 5px 5px;
+    border-radius: 5px 5px 20px 20px;
+    
+  }
+  #text__box {
+    height: 130px;
+    width: 360px;
+  }
+  .section--output {
+    width: 100%;
+    background-image: none;
+    height: 60vh;
+  }
+  .section--output .main__container {
+    height: 300px;
+    width: 380px;
+  }
+  .section--output .option__container {
+   display: none;
+  }
+  .section--output .text__container {
+    border-radius: 20px;
+    inset: 5px 5px 5px 5px;
+  }
+  .container--notification {
+    position: absolute;
+    height: 80px;
+    top: -100px;
+    left: -12px;
+    width: 120px;
+  }
+  .container--notification img {
+    width: 100px;
+    height: 100px;
+    left: -15px;
+  }    
+}
+
+@media (orientation: landscape) {
+  main {
+    flex-direction: row;
+    background-image: none;
+  }
+  .section--input {
+    width: 50%;
+    background-image: none;
+  }
+
+  .box--left {
+    display: none;
+  }
+  .box--right {
+    display: none;
+  }
+  .main__container {
+    height: 230px;
+    width: 380px; 
+  }
+  .option__container {
+    inset: 5px 5px 190px 5px;
+  }
+  .status__container{
+    display: none;
+  }
+  .text__container{
+    inset: 41px 5px 5px 5px;
+    border-radius: 5px 5px 20px 20px;
+  }
+  #text__box {
+    height: 130px;
+    width: 360px;
+  }
+  .section--output {
+    width: 50%;
+    background-image: none;
+  }
+  .section--output .main__container {
+    height: 300px;
+    width: 380px;
+  }
+  .section--output .option__container {
+   display: none;
+  }
+  .section--output .text__container {
+    border-radius: 20px;
+    inset: 5px 5px 5px 5px;
+  }
+  .container--notification {
+    position: absolute;
+    height: 60px;
+    top: -65px;
+    left: -12px;
+    width: 120px;
+  }
+  .container--notification img {
+    width: 80px;
+    height: 80px;
+  }    
+}

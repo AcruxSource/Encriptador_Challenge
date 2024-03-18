@@ -1,4 +1,5 @@
 log = console.log;
+const notification = document.querySelector(".container--notification");
 const inputText = document.querySelector(".text__box--in");
 const outputText = document.querySelector(".text__box--out");
 const lineNumber = document.querySelector(".box__input--lin");
@@ -13,11 +14,16 @@ const boxOpen = document.getElementById("container--open");
 const inputSave = document.querySelector(".input");
 const tbBody = document.querySelector("tbody");
 let statusAnimation = false;
-const maxLength = 48;
-const textArea = {
-  text: null,
-  buffer: [],
-};
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 600 && window.innerWidth <= 940) {
+    notification.style.display = "none";
+  } else if (window.innerWidth > 940) {
+    notification.style.display = "";
+  } else if (window.innerWidth < 600) {
+    notification.style.display = "";
+  }
+});
 
 btnSave.addEventListener("click", () => {
   const count = getListNames().length;
@@ -71,18 +77,19 @@ tbBody.addEventListener("click", (ev) => {
           columnNumber.textContent = handler.column()[0];
           lineNumber.textContent = handler.line;
           break;
-        case "input":
-          // wordWrap();
-          getUppercase();
       }
     });
   });
-})("click", "keyup", "select", "input");
+})("click", "keyup");
 
 modeCheckBox.addEventListener("change", () => {
-  modeCheckBox.checked
-    ? (mode.textContent = "Modo: DES-ENCRIPTAR")
-    : (mode.textContent = "Modo: ENCRIPTAR");
+  if (modeCheckBox.checked) {
+    mode.textContent = "Modo: DES-ENCRIPTAR";
+    sphereNotification("\u25c9 .DES-ENCRIPTAR. \u25c9 configurado ", 2000);
+  } else {
+    mode.textContent = "Modo: ENCRIPTAR";
+    sphereNotification("\u25c9  .ENCRIPTAR.   \u25c9 configurado ", 2000);
+  }
 });
 
 function getListNames() {
@@ -131,67 +138,72 @@ function cursorPosition() {
     line: subText.length,
   };
 }
-function wordWrap() {
-  textArea.text = inputText.value.split(/\n/);
-  textArea.text.forEach((element) => {
-    if (element.length > maxLength) {
-      const index = textArea.text.indexOf(element);
-      const indexLastSpace = element.lastIndexOf(" ");
-      textArea.buffer.push(element.substring(0, indexLastSpace));
-      textArea.buffer.push(element.substring(indexLastSpace + 1));
-      textArea.text[index] = textArea.buffer[0];
-      if (textArea.text[index + 1] != undefined) {
-        textArea.text[index + 1] =
-          textArea.buffer[1] + " " + textArea.text[index + 1];
-      } else {
-        textArea.text.push(textArea.buffer[1]);
-      }
-    }
-  });
-  inputText.value = textArea.text.join().replace(/[,]/g, "\n");
-}
 
 function clean() {
   inputText.value = "";
   outputText.value = "";
+  columnNumber.textContent = "";
+  lineNumber.textContent = "";
 }
 
-async function getUppercase() {
-  let re = /\w*[A-Z]\w*/g;
-  const uppercaseString = inputText.value.match(re);
+function getException() {
+  const re1 = /\w*[A-Z]\w*/g;
+  const re2 = /\w*[àèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛäëïöüÿÄËÏÖÜŸ]\w*/g;
+  const uppercaseString = inputText.value.match(re1);
+  const acptString = inputText.value.match(re2);
   log(uppercaseString);
-  await sphereNotification("Bienvenidos");
+  log(acptString);
+
+  return [uppercaseString, acptString];
 }
 
 function codeMake() {
-  let patterns = [
-    ["e", "enter"],
-    ["i", "imes"],
-    ["a", "ai"],
-    ["o", "ober"],
-    ["u", "ufat"],
-  ];
-  let code = inputText.value;
-  patterns.forEach((element) => {
-    if (!modeCheckBox.checked) {
-      let re = new RegExp(element[0], "g");
-      code = code.replace(re, element[1]);
-      if (!inputText.value) {
-        sphereNotification("OK... ?", 2000);
+  const [uppercaseString, acptString] = getException();
+  if (uppercaseString !== null && acptString !== null) {
+    sphereNotification(
+      "\u26A0 EJECUCIÓN DENEGADA! \u26A0 No se permiten combinación de mayúsculas y acentos",
+      4000
+    );
+  } else if (uppercaseString !== null) {
+    sphereNotification(
+      "\u26A0 EJECUCIÓN DENEGADA! \u26A0 No se permiten mayúsculas",
+      4000
+    );
+  } else if (acptString !== null) {
+    sphereNotification(
+      "\u26A0 EJECUCIÓN DENEGADA! \u26A0 No se permiten acentos",
+      4000
+    );
+  } else {
+    let patterns = [
+      ["e", "enter"],
+      ["i", "imes"],
+      ["a", "ai"],
+      ["o", "ober"],
+      ["u", "ufat"],
+    ];
+    let code = inputText.value;
+    patterns.forEach((element) => {
+      if (!modeCheckBox.checked) {
+        let re = new RegExp(element[0], "g");
+        code = code.replace(re, element[1]);
+        if (!inputText.value) {
+          sphereNotification("OK... ?", 2000);
+        } else {
+          sphereNotification("OK... ENCRIPTADO", 2000);
+        }
       } else {
-        sphereNotification("OK... ENCRIPTADO", 2000);
+        let re = new RegExp(element[1], "g");
+        code = code.replace(re, element[0]);
+        if (!inputText.value) {
+          sphereNotification("OK... ?", 2000);
+        } else {
+          sphereNotification("OK... DES-ENCRIPTADO", 2000);
+        }
       }
-    } else {
-      let re = new RegExp(element[1], "g");
-      code = code.replace(re, element[0]);
-      if (!inputText.value) {
-        sphereNotification("OK... ?", 2000);
-      } else {
-        sphereNotification("OK... DES-ENCRIPTADO", 2000);
-      }
-    }
-  });
-  outputText.value = code;
+    });
+    outputText.value = code;
+  }
 }
 
 function save() {
@@ -244,11 +256,13 @@ function deleteFile() {
 }
 
 async function sphereNotification(message, duration) {
-  const notification = document.querySelector(".container--notification");
   const msnBox = document.querySelector(".message");
-
   const promiseAnimation = new Promise((resolve, reject) => {
     if (!statusAnimation) {
+      if (window.innerWidth > 600 && window.innerWidth <= 940) {
+        notification.style.display = "";
+      }
+
       statusAnimation = true;
       setTimeout(() => {
         const animation = msnBox.animate(
@@ -270,6 +284,11 @@ async function sphereNotification(message, duration) {
           statusAnimation = false;
           notification.style.width = "120px";
           resolve(true);
+          if (window.innerWidth > 600 && window.innerWidth <= 940) {
+            setTimeout(() => {
+              notification.style.display = "none";
+            }, 600);
+          }
         });
         animation.ready.then(() => {
           notification.style.width = "400px";
