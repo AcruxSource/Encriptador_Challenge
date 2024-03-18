@@ -299,7 +299,7 @@ async function sphereNotification(message, duration) {
   });
   await promiseAnimation;
 }
-// (async () => {
-//   await sphereNotification("Bienvenido!...Soy KRIPT", 3000);
-//   await sphereNotification("mensajes secretos encriptados", 3000);
-// })();
+(async () => {
+  await sphereNotification("Bienvenido!...Soy KRIPT", 3000);
+  await sphereNotification("crear tus mensajes secretos", 3000);
+})();
