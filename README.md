@@ -40,5 +40,7 @@ La letra "o" es convertida para "ober"
 La letra "u" es convertida para "ufat"
 ```
 ## Extras:
-<img src=https://github.com/AcruxSource/Encriptador_Challenge/assets/108144330/9fc3e0c7-4817-472f-a79c-300a4b417ef1 width="300"/>
+* Asistente animado con notificaciones basica segun los eventos que se ejecuten en la página web
+
+<img src=https://github.com/AcruxSource/Encriptador_Challenge/assets/108144330/9fc3e0c7-4817-472f-a79c-300a4b417ef1 width="400"/>
 
