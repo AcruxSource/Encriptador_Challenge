@@ -619,7 +619,7 @@ main {
   }    
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape) and (max-height:430px) {
   main {
     flex-direction: row;
     background-image: none;
