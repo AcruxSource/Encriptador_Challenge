@@ -41,6 +41,16 @@ La letra "u" es convertida para "ufat"
 ```
 ## Extras:
 * Asistente animado con notificaciones basica segun los eventos que se ejecuten en la página web
+* Ventanas de diálogo para abrir y guardar (en localstore) los textos generado en el contenedor de salida.
+* Boton animado para encriptar o desencriptar.
+* Boton tipo toggle para la selección los modos (encriptar o desencriptar).
+* Boton para borrar los contenidos de los contenedores
+* Barra de estado que indica el numero de línea y columna.
 
-<img src=https://github.com/AcruxSource/Encriptador_Challenge/assets/108144330/9fc3e0c7-4817-472f-a79c-300a4b417ef1 width="400"/>
+## Screen shop:
 
+![screencapture-127-0-0-1-5500-index-html-2024-03-18-11_56_17 (1)](https://github.com/AcruxSource/Encriptador_Challenge/assets/108144330/4e6c0df7-d72e-48e4-b87a-2547c8526216)
+![screencapture-127-0-0-1-5500-2024-03-18-12_47_48](https://github.com/AcruxSource/Encriptador_Challenge/assets/108144330/a3df36c5-1163-45c4-8ad6-dc43df5338cd)
+![screencapture-127-0-0-1-5500-2024-03-18-12_46_58](https://github.com/AcruxSource/Encriptador_Challenge/assets/108144330/e51cc211-de85-4450-a5a1-08c3296d4343)
+![screencapture-127-0-0-1-5500-2024-03-18-12_35_53 (1)](https://github.com/AcruxSource/Encriptador_Challenge/assets/108144330/1e7ce556-ec32-4234-9d32-140e5cd91de6)
+![screencapture-127-0-0-1-5500-2024-03-18-12_48_53](https://github.com/AcruxSource/Encriptador_Challenge/assets/108144330/eb45ea38-ff10-47d8-8ead-2ee3983f8d24)
