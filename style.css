@@ -506,9 +506,7 @@ main {
 @media only screen and (width >= 600px) and (width <= 940px) {
   main {
     flex-direction: column;
-    background-image: url(./img/bg_design.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: none;
   }
   .section--input {
     width: 100%;
