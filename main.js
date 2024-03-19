@@ -207,7 +207,6 @@ function codeMake() {
 }
 
 function save() {
-  sphereNotification();
   if (inputSave.value !== "") {
     const objDate = new Date();
     const dateNow =
