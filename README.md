@@ -11,8 +11,6 @@ Oracle Next Education + alura LATAM
 <p align="center">
 <img src=https://github.com/AcruxSource/Encriptador_Challenge/assets/108144330/916d0f1f-df90-47f0-bdbb-0312af1d99bb  width ="800" />
 </p>
-## DEMO
-https://acruxsource.github.io/Encriptador_Challenge/
 ## Descriptcion:
 
 **Challenge: Encriptador y desencriptador de texto** empleando **HTML5**, **CSS3** y **JavaScript**. La página permite encriptar o desencriptar el texto ingresado por un usuario.
@@ -22,7 +20,7 @@ La consiste usado dos (2):
 
 - Contenedor para incriptar o desencriptar el texto ingreso.
 - Contenedor como salida de texto, segun operación.
-
+## Demo:
 ## Requisitos:
 
 - Funciona solo con letras minúsculas.
